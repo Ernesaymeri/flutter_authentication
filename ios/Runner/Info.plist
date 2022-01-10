@@ -10,8 +10,6 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<string>google_maps_in_flutter</string>
-    <key>CFBundlePackageType</key>
 	<key>CFBundleName</key>
 	<string>flutter_authentication</string>
 	<key>CFBundlePackageType</key>
