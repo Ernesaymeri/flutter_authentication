@@ -1,4 +1,4 @@
-# flutter_authentication
+# Flutter App
 
 A new Flutter project.
 
@@ -14,3 +14,15 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+### Setup iOS
+
+`xcrun simctl list`
+
+Set the desired device: 
+
+`xcrun simctl boot B33C18E4-8126-45DC-B17F-982C01DE226D`
+
+And finally, run the app:
+
+`flutter run -d B33C18E4-8126-45DC-B17F-982C01DE226D`
