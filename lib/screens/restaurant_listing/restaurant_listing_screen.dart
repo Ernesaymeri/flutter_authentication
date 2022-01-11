@@ -14,7 +14,7 @@ class RestaurantListingScreen extends StatelessWidget {
 
   final List<Restaurant> restaurants;
 
-  const RestaurantListingScreen({
+   RestaurantListingScreen({
     required this.restaurants,
   });
   @override

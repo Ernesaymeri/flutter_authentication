@@ -20,7 +20,6 @@ class LocationScreen extends StatelessWidget {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,36 +29,35 @@ class LocationScreen extends StatelessWidget {
             return Stack(
               children: [
                 SingleChildScrollView(
-                  child: Column (
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                      height: MediaQuery.of(context).size.height,
-                      width: double.infinity,
-                       child: BlocBuilder<GeolocationBloc, GeolocationState>(
-                      builder: (context, state) {
-                        if (state is GeolocationLoading) {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is GeolocationLoaded) {
-                          return Gmap(
-                            lat: state.position.latitude,
-                            lng: state.position.longitude,
-                          );
-                        } else {
-                          return Text('Something went wrong.');
-                        }
-                      },
-                    ),
-                  ),
+                        height: MediaQuery.of(context).size.height,
+                        width: double.infinity,
+                        child: BlocBuilder<GeolocationBloc, GeolocationState>(
+                          builder: (context, state) {
+                            if (state is GeolocationLoading) {
+                              return Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else if (state is GeolocationLoaded) {
+                              return Gmap(
+                                lat: state.position.latitude,
+                                lng: state.position.longitude,
+                              );
+                            } else {
+                              return Text('Something went wrong.');
+                            }
+                          },
+                        ),
+                      ),
                     ],
-                ),
+                  ),
                 ),
                 SaveButton(),
                 Location(),
-              
               ],
             );
           } else if (state is PlaceLoaded) {
@@ -76,10 +74,7 @@ class LocationScreen extends StatelessWidget {
           } else {
             return Text('Something went wrong.');
           }
-            
-              
         },
-      
       ),
     );
   }
@@ -98,12 +93,13 @@ class Location extends StatelessWidget {
         right: 50,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor),
             child: Text('Save'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
           ),
         ));
   }
@@ -132,7 +128,7 @@ class SaveButton extends StatelessWidget {
               width: 15,
             ),
             Expanded(
-              child: Column(
+                child: Column(
               children: [
                 LocationSearchBox(),
                 BlocBuilder<AutocompleteBloc, AutocompleteState>(
@@ -164,8 +160,6 @@ class SaveButton extends StatelessWidget {
                                         LoadPlace(
                                           placeId:
                                               state.autocomplete[index].placeId,
-
-                                          
                                         ),
                                       );
                                 },

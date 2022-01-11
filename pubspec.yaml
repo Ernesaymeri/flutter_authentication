@@ -47,6 +47,8 @@ dependencies:
   flutter_awesome_buttons: ^1.1.0
   google_api_availability: ^3.0.1
   flutter_config: ^2.0.0
+  flutter_signin_button: ^2.0.0
+  firebase: ^9.0.2
   
   
  

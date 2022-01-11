@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_authentication/screens/login_and_register/fire_auth.dart';
 import 'package:flutter_authentication/screens/login_and_register/login.dart';
 
-
 class ProfilePage extends StatefulWidget {
   final User user;
 
@@ -29,6 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFFE3C5B),
         title: Text('Profile'),
       ),
       body: Center(
@@ -67,6 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ElevatedButton(
+                        
                         onPressed: () async {
                           setState(() {
                             _isSendingVerification = true;
@@ -77,9 +78,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           });
                         },
                         child: Text('Verify email'),
+                        style: ElevatedButton.styleFrom(
+                      primary: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
                       ),
                       SizedBox(width: 8.0),
                       IconButton(
+                        
                         icon: Icon(Icons.refresh),
                         onPressed: () async {
                           User? user = await FireAuth.refreshUser(_currentUser);
@@ -119,6 +127,27 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                   ),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    primary: Color(0xFFFE3C5B),
+                  ),
+                  child: Text('HomePage'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/');
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),

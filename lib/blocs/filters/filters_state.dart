@@ -1,15 +1,15 @@
 part of 'filters_bloc.dart';
 
-abstract class FilterState extends Equatable {
-  const FilterState();
+abstract class FiltersState extends Equatable {
+  const FiltersState();
 
   @override
   List<Object> get props => [];
 }
 
-class FilterLoading extends FilterState {}
+class FilterLoading extends FiltersState {}
 
-class FilterLoaded extends FilterState {
+class FilterLoaded extends FiltersState {
   final Filter filter;
 
   FilterLoaded({

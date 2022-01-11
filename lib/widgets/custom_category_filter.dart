@@ -12,7 +12,7 @@ class CustomCategoryFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilterBloc, FilterState>(
+    return BlocBuilder<FiltersBloc, FiltersState>(
       builder: (context, state) {
         if (state is FilterLoading) {
           return const Center(
@@ -47,8 +47,8 @@ class CustomCategoryFilter extends StatelessWidget {
                       child: Checkbox(
                         value: state.filter.categoryFilters[index].value,
                         onChanged: (bool? newValue) {
-                          context.read<FilterBloc>().add(
-                                CategoryFilterUpdate(
+                          context.read<FiltersBloc>().add(
+                                CategoryFilterUpdated(
                                   categoryFilter: state
                                       .filter.categoryFilters[index]
                                       .copyWith(

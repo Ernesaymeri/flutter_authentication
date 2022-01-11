@@ -137,12 +137,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                         }
                                       }
                                     },
-                                    child: Text(
-                                      'Sign up',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                ),
+                                    child: Text('Sign up'),
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.green,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                        ),
+                                      ),
+                                      ),
+                                  
+                                
                               ],
                             )
                     ],

@@ -19,7 +19,7 @@ import 'simple_bloc_observer.dart';
 
 
 Future<void> main() async {
-  //Bloc.observer = SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
   runApp(MyApp());
 }
 
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
               create: (context) => PlaceBloc(
                   placesRepository: context.read<PlacesRepository>())),
           BlocProvider(
-            create: (context) => FilterBloc()
+            create: (context) => FiltersBloc()
               ..add(
                 FilterLoad(),
               ),

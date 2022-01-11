@@ -9,24 +9,24 @@ import 'package:flutter_authentication/models/price_filter_model.dart';
 part 'filters_event.dart';
 part 'filters_state.dart';
 
-class FilterBloc extends Bloc<FilterEvent, FilterState> {
-  FilterBloc() : super(FilterLoading());
+class FiltersBloc extends Bloc<FiltersEvent, FiltersState> {
+  FiltersBloc() : super(FilterLoading());
 
-  Stream<FilterState> mapEvenToState(
-    FilterEvent event,
+  Stream<FiltersState> mapEvenToState(
+    FiltersEvent event,
   ) async* {
     if (event is FilterLoad) {
       yield* _mapFilterLoadToState();
     }
-    if (event is CategoryFilterUpdate) {
+    if (event is CategoryFilterUpdated) {
       yield* _mapCategoryFilterUpdatedToState(event, state);
     }
-    if (event is PriceFilterUpdate) {
+    if (event is PriceFilterUpdated) {
       yield* _mapPriceFilterUpdatedToState(event, state);
     }
   }
 
-  Stream<FilterState> _mapFilterLoadToState() async* {
+  Stream<FiltersState> _mapFilterLoadToState() async* {
     yield FilterLoaded(
       filter: Filter(
         categoryFilters: CategoryFilter.filters,
@@ -35,9 +35,9 @@ class FilterBloc extends Bloc<FilterEvent, FilterState> {
     );
   }
 
-  Stream<FilterState> _mapCategoryFilterUpdatedToState(
-    CategoryFilterUpdate event,
-    FilterState state,
+  Stream<FiltersState> _mapCategoryFilterUpdatedToState(
+    CategoryFilterUpdated event,
+    FiltersState state,
   ) async* {
     if (state is FilterLoaded) {
       final List<CategoryFilter> updatedCategoryFilters =
@@ -56,9 +56,9 @@ class FilterBloc extends Bloc<FilterEvent, FilterState> {
     }
   }
 
-  Stream<FilterState> _mapPriceFilterUpdatedToState(
-    PriceFilterUpdate event,
-    FilterState state,
+  Stream<FiltersState> _mapPriceFilterUpdatedToState(
+    PriceFilterUpdated event,
+    FiltersState state,
   ) async* {
     if (state is FilterLoaded) {
       final List<PriceFilter> updatedPriceFilters =

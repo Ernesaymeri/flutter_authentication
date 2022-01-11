@@ -25,7 +25,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
-          backgroundColor:  Color(0x00000000),
+          backgroundColor: Color(0x00000000),
           elevation: 0,
         ),
         bottomNavigationBar: BottomAppBar(
@@ -36,8 +36,10 @@ class RestaurantDetailsScreen extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 50),
-                    shape: RoundedRectangleBorder(),
-                    primary: Theme.of(context).accentColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    primary: Color(0xFFFE3C5B),
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, '/basket');
@@ -127,8 +129,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
                                     color: Theme.of(context).primaryColor,
                                   ),
                                   onPressed: () {
-                                    context.read<BasketBloc>()
-                                      .add(AddItem(menuItem));
+                                    context
+                                        .read<BasketBloc>()
+                                        .add(AddItem(menuItem));
                                   },
                                 );
                               },

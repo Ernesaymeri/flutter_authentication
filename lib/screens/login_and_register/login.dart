@@ -6,7 +6,6 @@ import 'package:flutter_authentication/screens/login_and_register/profile_page.d
 import 'package:flutter_authentication/screens/login_and_register/register.dart';
 import 'package:flutter_authentication/screens/login_and_register/validator.dart';
 
-
 class LoginScreen extends StatefulWidget {
   static const String routeName = '/login-screen';
 
@@ -16,7 +15,7 @@ class LoginScreen extends StatefulWidget {
       settings: RouteSettings(name: routeName),
     );
   }
-  
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -85,7 +84,8 @@ class _LoginPageState extends State<LoginScreen> {
                           TextFormField(
                             controller: _emailTextController,
                             focusNode: _focusEmail,
-                            validator: (String? value) => Validator.validateEmail(
+                            validator: (String? value) =>
+                                Validator.validateEmail(
                               email: value,
                             ),
                             decoration: InputDecoration(
@@ -157,12 +157,17 @@ class _LoginPageState extends State<LoginScreen> {
                                             }
                                           }
                                         },
-                                        child: Text(
-                                          'Sign In',
-                                          style: TextStyle(color: Colors.white),
+                                        child: Text('Sign in'),
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.green,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                      ),
+                                    
                                     SizedBox(width: 24.0),
                                     Expanded(
                                       child: ElevatedButton(
@@ -174,9 +179,13 @@ class _LoginPageState extends State<LoginScreen> {
                                             ),
                                           );
                                         },
-                                        child: Text(
-                                          'Register',
-                                          style: TextStyle(color: Colors.white),
+                                        child: Text('Register'),
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.red,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
                                         ),
                                       ),
                                     ),

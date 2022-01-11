@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_authentication/blocs/filters/filters_bloc.dart';
 import 'package:flutter_authentication/models/price_model.dart';
 
+
 class CustomPriceFilter extends StatelessWidget {
   const CustomPriceFilter({
     Key? key,
@@ -10,7 +11,7 @@ class CustomPriceFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilterBloc, FilterState>(
+    return BlocBuilder<FiltersBloc, FiltersState>(
       builder: (context, state) {
         if (state is FilterLoading) {
           return const Center(
@@ -27,8 +28,8 @@ class CustomPriceFilter extends StatelessWidget {
                 .map(
                   (price) => InkWell(
                     onTap: () {
-                      context.read<FilterBloc>().add(
-                            PriceFilterUpdate(
+                      context.read<FiltersBloc>().add(
+                            PriceFilterUpdated(
                               priceFilter:
                                   state.filter.priceFilters[price.key].copyWith(
                                 value:

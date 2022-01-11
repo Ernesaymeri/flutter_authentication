@@ -1,21 +1,21 @@
 part of 'filters_bloc.dart';
 
-abstract class FilterEvent extends Equatable {
-  const FilterEvent();
+abstract class FiltersEvent extends Equatable {
+  const FiltersEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class FilterLoad extends FilterEvent {
+class FilterLoad extends FiltersEvent {
   @override
   List<Object> get props => [];
 }
 
-class CategoryFilterUpdate extends FilterEvent {
+class CategoryFilterUpdated extends FiltersEvent {
   final CategoryFilter categoryFilter;
 
-  const CategoryFilterUpdate({
+  const CategoryFilterUpdated({
     required this.categoryFilter
   });
 
@@ -24,10 +24,10 @@ class CategoryFilterUpdate extends FilterEvent {
   List<Object> get props => [categoryFilter];
 }
 
-class PriceFilterUpdate extends FilterEvent {
+class PriceFilterUpdated extends FiltersEvent {
   final PriceFilter priceFilter;
 
-  const PriceFilterUpdate({
+  const PriceFilterUpdated({
     required this.priceFilter
   });
 

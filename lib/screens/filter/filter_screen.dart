@@ -28,7 +28,7 @@ class FilterScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BlocBuilder<FilterBloc, FilterState>(
+                BlocBuilder<FiltersBloc, FiltersState>(
                   builder: (context, state) {
                     if (state is FilterLoading) {
                       return const Center(
